@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      AddItemPage
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-row class="ionic-row">
+    <ion-col text-center>
+
+      <ion-item>
+        <ion-label>Categorias</ion-label>
+        <ion-select okText="Okay" cancelText="Dismiss">
+          <ion-option *ngFor="let item of categoriesGlobal" [value]="item.id">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <button ion-button (click)='openModal()'>Add Category</button>
+
+
+
+      <ion-item>
+        <input id="itemName" (keyup)="keyUp($event)">
+        <p *ngIf="message !== ''">{{message}}</p>
+
+        <input id="itemPrice" (keyup)="keyUp($event)">
+        <p *ngIf="message !== ''">{{message}}</p>
+        
+      </ion-item>
+
+
+
+      <!-- <form novalidate [formGroup]="addItemForm">
+        <ion-item>
+          <ion-label stacked>My Field Label</ion-label>
+          <ion-input formControlName="itemField"></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngFor="let validation of validation_messages.itemField">
+            <div *ngIf="addItemForm.get('itemField').hasError(validation.type)">
+              <p>{{validation.message}}</p>
+            </div>
+          </ng-container>
+        </div>
+
+        <button ion-button block small type="submit" [disabled]="!addItemForm.valid">Save</button>
+      </form> -->
+    </ion-col>
+  </ion-row>
+</ion-content>

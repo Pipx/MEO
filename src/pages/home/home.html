@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Lista</ion-title>
+  </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <!-- <page-login></page-login> -->
+  <!-- <ion-list *ngFor="let category of categories; let categoryIndex = index">
+    <ion-list-header>
+      {{category.name}}
+    </ion-list-header>
+    <div *ngFor="let char of characters; let charIndex = index">
+      <ion-item (click)="openModal({charNum: charIndex})" *ngIf="categoryIndex === char.category">{{char.name}}</ion-item>
+    </div>
+  </ion-list> -->
+</ion-content>

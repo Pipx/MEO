@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Adicionar Nova Categoria</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col text-center>
+
+      <form novalidate [formGroup]="form" (ngSubmit)="addNewCategory()" >
+        <ion-item>
+          <ion-label stacked>My Field Label</ion-label>
+          <ion-input formControlName="myField"></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngFor="let validation of validation_messages.myField">
+            <div *ngIf="form.get('myField').hasError(validation.type)">
+              <p>{{validation.message}}</p>
+            </div>
+          </ng-container>
+        </div>
+
+        <button ion-button block small type="submit" [disabled]="!form.valid">Save</button>
+      </form>
+
+
+
+      <!-- <ion-item>
+
+        <input id="input-1" type="text" placeholder="Nome Categoria">
+        <ion-input #input-1 type="text" placeholder="Nome Categoria" required></ion-input>
+        <span style="color:red" *ngIf="title.value.length > 10">
+          10 max
+        </span>
+        <span style="color:red" *ngIf="!title.value">
+          required
+        </span>
+      </ion-item> -->
+      <!-- <ion-item>
+        <button ion-button type="submit" (click)='addNewCategory($event)'>Add</button>
+        <p>{{id}}</p> 
+        <button ion-button [disabled]="inputModel?.length > 10 || !inputModel">Default</button>
+      </ion-item> -->
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+
+<!-- formControlName="myControl" -->
